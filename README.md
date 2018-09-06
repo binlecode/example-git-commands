@@ -1,4 +1,4 @@
-# example-git-rename-branch
+# example-git-common-commands
 
 There are many cases that you want to rename a local and remote branch.
 Here are the simple steps to carry out in command line.
