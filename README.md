@@ -73,10 +73,3 @@ Without deletion, the content of old branch can be replaced by new branch:
 ```bash
 git push origin <old-branch-name> <new-branch-name>
 ```
-
-
-### Reset the upstream branch for the new-name local branch.
-Switch to the branch and then:
-```bash
-git push origin -u <new-branch-name>
-```
