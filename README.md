@@ -23,31 +23,27 @@ git pull origin <branch-name>
 
 Merge all changes and commit in the target branch.
 
-
 ### Optional: backup the branch to be renamed
 ```bash
-git branch <old-branch-name>
-git branch <old-branch-backup-name>
-```
-
-then check you have a backup branch alongside
-```bash
-git branch
+git checkout <branch-name>
+git branch <branch-backup-name>
 ```
 
 ### Rename your local branch
 
-If you are on the branch you want to rename:
+If you are on the new branch (```<new-branch-name>```) you want to rename:
 ```bash
-git branch -m <new-branch-name>
+git branch -m <new-branch-name> <branch-name>
 ```
 
-If you are on a different branch:
+If you are on a different branch other than ```<new-branch-name>``` and ```<branch-name>```:
 ```bash
-git branch -m <old-branch-name> <new-branch-name>
+git branch -m <old-branch-name> <branch-name>
 ```
 
-### Delete the old remote branch and push the new local branch.
+### Sync the change to remote (origin)
+
+#### Option 1 Delete the old remote branch and push the new local branch.
 
 ```bash
 git push origin :<old-branch-name> <new-branch-name>
@@ -67,16 +63,9 @@ The 'current' branch is the special HEAD reference. HEAD must point to something
 In this case, you need to go to github website on the far right side in the navigation menu choose 'Settings', in the Settings Tab choose 'Default Branch', and change default branch to one different from the ```<old-branch-name>```.
 
 
-### Alternative, replace remote branch content with new branch
+#### Option 2, replace remote branch content with new branch
 
 Without deletion, the content of old branch can be replaced by new branch:
 ```bash
-git push origin <old-branch-name> <new-branch-name>
-```
-
-
-### Reset the upstream branch for the new-name local branch.
-Switch to the branch and then:
-```bash
-git push origin -u <new-branch-name>
+git push origin <branch-name>
 ```
