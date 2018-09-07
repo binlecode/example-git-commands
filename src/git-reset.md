@@ -84,10 +84,7 @@ After runnign ```git reset --hard```, with ```git status```, git indicates there
 
 #### --soft
 
-<<<<<<< HEAD
 A git soft reset only changes commit history. Neither the Index or Working Directory is touched by a soft reset.
-=======
->>>>>>> d0d1fb01fde1c9c82884502ebced542d8997d46c
 
 for example, by running ```git log```, commit history is shown 
 ```
