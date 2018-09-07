@@ -127,4 +127,12 @@ Date:   ...
 The log output now shows that there is a single commit in the Commit History. This helps to clearly illustrate what ```--soft``` has done. As with all git reset invocations, the first action git reset takes is to reset the commit tree. Our previous examples with ```--hard``` and ```--mixed``` continous beyond this step. ```--mixed``` resets the HEAD ref, while ```--hard``` continous further and resets the Working Directory.
 
 
+## reset between branches
 
+Basically it is the same as using reset within the branch, with only the target commit being another branch
+```bash
+git checkout test-branch
+git reset --hard master
+```
+The hard reset above is reseting the ```test-branch``` to the HEAD commit of ```master branch```.
+All the rules abut hard, mixed, or soft options are the same.
