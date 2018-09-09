@@ -9,3 +9,5 @@ link to [git-stash-between-branch](./src/git-stash-between-branch.md)
 link to [git-reset](./src/git-reset.md)
 
 link to [git-commit-amend](./src/git-commit-amend.md)
+
+link to [git-rebase](./src/git-rebase.md)
