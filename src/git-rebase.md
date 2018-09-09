@@ -144,7 +144,23 @@ Switched to a new branch 'feature3'
 $ echo 'add line to reset_lifecycle_file' >> reset_lifecycle_file
 $ git add .
 $ git commit -m 'add line to reset_lifecycle_file'
-# rebase onto master with interactive mode
+```
+
+At this point the relation between feature3 and master is like this:
+```
+o -> o -> o master
+\
+ o -> o feature3
+```
+After rebase, feature3 should look like
+```
+o -> o -> o master
+           \
+            o -> o feature3
+```
+
+To rebase with interactive mode, run:
+```
 $ git rebase -i master
 ```
 
