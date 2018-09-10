@@ -2,12 +2,12 @@
 
 ## Table of contents
 
-link to [git-rename-branch](./src/git-rename-branch.md)
+[Simple git rename branch](./src/git-rename-branch.md)
 
-link to [git-stash-between-branch](./src/git-stash-between-branch.md)
+[Simple git stash between branches](./src/git-stash-between-branch.md)
 
-link to [git-reset](./src/git-reset.md)
+[Simple git reset](./src/git-reset.md)
 
-link to [git-commit-amend](./src/git-commit-amend.md)
+[Simple git commit amend](./src/git-commit-amend.md)
 
-link to [git-rebase](./src/git-rebase.md)
+[Simple git rebase](./src/git-rebase.md)
