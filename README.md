@@ -11,3 +11,5 @@
 [Simple git commit amend](./src/git-commit-amend.md)
 
 [Simple git rebase](./src/git-rebase.md)
+
+[Simple git sync forked repo to upstream](./src/git-sync-forked.md)
