@@ -75,7 +75,11 @@ master:     o(commit e3a4ac2...) -> o(commit 1a66217...)
             \
 feature1:    o(commit e3a4ac2...) -> o(commit 3709d3a6...)
 ```
+
+Now let's go back to `featur1` branch, and verify by checking into `.git` folder for heads:
+
 ```bash
+$ git checkout feature1
 $ ls -l .git/refs/heads/
 feature1	
 master
