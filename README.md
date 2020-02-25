@@ -13,3 +13,5 @@
 [Simple git rebase](./src/git-rebase.md)
 
 [Simple git sync forked repo to upstream](./src/git-sync-forked.md)
+
+[Simple git delete file recovery](./src/git-recover-deleted.md)
