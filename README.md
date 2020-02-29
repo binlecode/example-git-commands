@@ -1,5 +1,7 @@
 # example-git-common-commands
 
+Github page url: [https://binlecode.github.io/example-git-commands/](https://binlecode.github.io/example-git-commands/)
+
 ## Table of contents
 
 [Simple git rename branch](./src/git-rename-branch.md)
