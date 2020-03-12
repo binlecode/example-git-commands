@@ -1,4 +1,6 @@
-# example-git-common-commands
+# example of common git commands
+
+This document based repo is a collection of git commands commonly used in daily work.
 
 Github page url: [https://binlecode.github.io/example-git-commands/](https://binlecode.github.io/example-git-commands/)
 
@@ -11,6 +13,8 @@ Github page url: [https://binlecode.github.io/example-git-commands/](https://bin
 [Simple git reset](./src/git-reset.md)
 
 [Simple git commit amend](./src/git-commit-amend.md)
+
+[Simple git merge and cherry pick](./src/git-merge.md)
 
 [Simple git rebase](./src/git-rebase.md)
 
