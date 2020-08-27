@@ -8,6 +8,8 @@ Github page url: [https://binlecode.github.io/example-git-commands/](https://bin
 
 ## Table of contents
 
+[Simple git configuration](./src/git-config.md)
+
 [Simple git rename branch](./src/git-rename-branch.md)
 
 [Simple git stash between branches](./src/git-stash-between-branch.md)

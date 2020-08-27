@@ -54,6 +54,22 @@ git config --global credential.helper 'store'
 git config credential.helper 'store'
 ```
 
-When pull | clone | enter you git password, in general, the password will be saved in `~/.git-credentials` file in the format like:
+The password will be saved in `~/.git-credentials` file in the format like:
 `https://GITUSER:GITPASSWORD@DOMAIN.XXX`.
+
+
+## multiple github accounts
+
+With multiple github accounts in macos, the default keychain can only keep one, 
+which will block the other account. 
+This is because by default the system level `credential.helper` is `osxkeychain`.
+This should be unset (or comment out in system level gitconfig file).
+
+In addition to that, the global gitconfig file should also unset or comment out
+`credential.helper` setting.
+
+Instead, unfortunately, only one account's credential could be saved in a file
+store. To prevent cross-account auth rejection, each repo belonging to that 
+account can set `credential.helper` to `store`, 
+those repos will look for credential (of that account) in `~/.git-credentials` file.
 
