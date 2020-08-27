@@ -11,7 +11,7 @@ Git has config at three levels: system, global and repo, each level overrides va
 To see combined config:
 
 ```bash
-git config --list --show-scope
+git config --list --show-scope --show-origin
 ```
 
 If this is run under a particular repo, then all combined configuration will be shown.
