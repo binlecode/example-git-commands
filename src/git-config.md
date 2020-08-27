@@ -35,12 +35,25 @@ git config --global --list
 This config is usually saved in ~/.git/config file
 
 
-To find how a particular setting is specified in the layered configuration, 
-for example, to check `credential.helper` setting:
+## credential config
+
+To find out `credential.helper` setting:
 
 ```bash
 git config --get-all --show-origin credential.helper
 ```
 
 This will list all configuraiton files containing that setting.
+
+To save git password to a file:
+
+```bash
+git config --global credential.helper 'store'
+
+# at a specific repo
+git config credential.helper 'store'
+```
+
+When pull | clone | enter you git password, in general, the password will be saved in `~/.git-credentials` file in the format like:
+`https://GITUSER:GITPASSWORD@DOMAIN.XXX`.
 
