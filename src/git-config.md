@@ -73,3 +73,11 @@ store. To prevent cross-account auth rejection, each repo belonging to that
 account can set `credential.helper` to `store`, 
 those repos will look for credential (of that account) in `~/.git-credentials` file.
 
+
+Since macos has osxkeychain, we can use that for the other account.
+For repos belonging to the other account, set `credential.helper` to `osxkeychain`.
+
+```bash
+git config credential.helper 'osxkeychain'
+```
+
