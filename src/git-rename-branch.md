@@ -7,7 +7,14 @@ Here are the simple steps to carry out in command line.
 
 Before anything else, make sure your local target branch is synchronized with remote (origin):
 ```bash
-git branch
+git branch -a
+```
+
+The `-a` is used to list all branches, both local and remote.
+To remove local list of branches for remote sync, use `--prune` option with `fetch` command.
+
+```bash
+git fetch --prune
 ```
 
 If there are pending changes, commit and push to remote:
@@ -50,7 +57,7 @@ git push origin :<old-branch-name> <new-branch-name>
 ```
 
 There are basically two steps involved in this push:
-- delete branch by adding ':' to the old branch name
+- delete branch by adding `:` to the old branch name
 - add back branch with old branch name, but with content of new branch
 
 You may receive an error message saying:
