@@ -26,6 +26,7 @@ Github page url: [https://binlecode.github.io/example-git-commands/](https://bin
 
 [Simple git delete file recovery](./src/git-recover-deleted.md)
 
+[Simple git slides example using MARP](src/git-slides-with-marp.md)
 
 ## Basic git workspace in a nutshell
 
