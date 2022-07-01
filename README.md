@@ -28,6 +28,8 @@ Github page url: [https://binlecode.github.io/example-git-commands/](https://bin
 
 [Simple git slides example using MARP](src/git-slides-with-marp.md)
 
+[Simple git search](src/git-search.md)
+
 ## Basic git workspace in a nutshell
 
 ![git workspaces in a nutshell](./src/images/git-workspaces.jpeg)
