@@ -1,17 +1,16 @@
 # git-rebase
 
-Two common practices of rewritting commit history is commit ```--amend``` and ```rebase```. For ```--amend``` see [git-commit-amend](./git-commit-amend.md).
-
 In general, rebase is the process of moving or combining a sequence of commits to a new base commit. By its name, it changes the base of current branch to another, re-apply commits by creating new commits. Therefore, the current branch remains, but its commit history is different.
 
-The primary use case of rebase is: 
+The primary use case of rebase is:
 The master branch has progressed since you started working on a feature branch. You want to get the latest updates from the master branch into your branch, but you want to keep your branch's history clean so it appears as if you've been working off the latest master branch.
 
-You have two options for integrating your feature into a public(team) branch: merging directly or rebasing and then merging. The former option results in a 3-way merge and a merge commit, while the latter results in a fast-forward merge and a linear history. 
+Git rebase itself is not seriously dangerous. The real danger arises when executing history rewriting interactive rebase and force pushing the results to a remote branch that's shared by other users. If the branch is shared with others then this pattern of rebase should be avoided, otherwise it will appear to others that the project history disappears.
 
 ## rebase case study
 
-With a repo with ```master``` branch
+With a repo with `master` branch
+
 ```bash
 $ git branch
 * master
@@ -68,7 +67,7 @@ Date:   Thu Sep 6 21:02:43 2018 -0400
     initial commit
 ```
 
-At this point you can see the forked HEADs between ```master``` and ```feature1``` branch:
+At this point you can see the forked HEADs between `master` and `feature1` branch:
 
 ```
 master:     o(commit e3a4ac2...) -> o(commit 1a66217...)
@@ -81,15 +80,15 @@ Now let's go back to `featur1` branch, and verify by checking into `.git` folder
 ```bash
 $ git checkout feature1
 $ ls -l .git/refs/heads/
-feature1	
+feature1
 master
 # since we are currently at fature1 branch
 $ cat .git/HEAD
 ref: refs/heads/feature1
 ```
 
-This means git ```HEAD``` is pointing to ref head of ```feature1``` branch.
-Now let ```feature1``` branch rebase on ```master``` branch:
+This means git `HEAD` is pointing to ref head of `feature1` branch.
+Now let `feature1` branch rebase on `master` branch:
 
 ```bash
 $ git rebase master
@@ -129,17 +128,18 @@ Author: Bin Le <binle@Bins-Mbp13d.local>
 Date:   Thu Sep 6 21:02:43 2018 -0400
 ```
 
-Now the ```feature1``` branch commit history tree is linearly (no more fork) based on commit ```1a66217...``` from ```master``` branch:
+Now the `feature1` branch commit history tree is linearly (no more fork) based on commit `1a66217...` from `master` branch:
 
 ```
 feature1: o(commit e3a4ac2... from master) -> o(commit 1a66217... from master) -> o(new commit 6666fbc94...)
 ```
 
-Also note the ```...skipping...``` section from the terminal return, that whole stack of original commit history is skipped from ```feature1``` branch.
+Also note the `...skipping...` section from the terminal return, that whole stack of original commit history is skipped from `feature1` branch.
 
-Rebase itself has 2 main modes: "manual" and "interactive" mode. The```--interactive``` (```-i``` for short) mode will open an editor with a list of the commits which are about to be changed. This list accepts commands, allowing the user to edit the list before initiating the rebase action.
+Rebase itself has 2 main modes: "manual" and "interactive" mode. The`--interactive` (`-i` for short) mode will open an editor with a list of the commits which are about to be changed. This list accepts commands, allowing the user to edit the list before initiating the rebase action.
 
-Following the case above let's create a ```feature2``` branch from master ```HEAD~2``` (two commits before ```HEAD```) commit:
+Following the case above let's create a `feature2` branch from master `HEAD~2` (two commits before `HEAD`) commit:
+
 ```bash
 $ git checkout master
 # create a new branch from two commits below HEAD
@@ -151,12 +151,15 @@ $ git commit -m 'add line to reset_lifecycle_file'
 ```
 
 At this point the relation between feature3 and master is like this:
+
 ```
 o -> o -> o master
 \
  o -> o feature3
 ```
+
 After rebase, feature3 should look like
+
 ```
 o -> o -> o master
            \
@@ -164,11 +167,13 @@ o -> o -> o master
 ```
 
 To rebase with interactive mode, run:
+
 ```
 $ git rebase -i master
 ```
 
 Then vi editor is invoked to show the following rebase script for customization:
+
 ```
 pick 9afa0a4 added change from feature3
 s 9b3a72b add line to reset_lifecycle_file
@@ -179,13 +184,12 @@ s 9b3a72b add line to reset_lifecycle_file
 # ...
 #
 ```
-The two pick commands can be changed to options such ```r```, ```s```, etc, as explained in the command list.
-Here the first pick is changed to ```s``` (squash). Once vi editing is done the script is run. 
+
+The two pick commands can be changed to options such `r`, `s`, etc, as explained in the command list.
+Here the first pick is changed to `s` (squash). Once vi editing is done the script is run.
 
 Conflict could occur from the content merging during rebase commit replay. Such conflict will be left for manual resolving. When conflict is resolved, rebase can continue by running:
+
 ```bash
 git rebase --continue
 ```
-
-
-Git rebase itself is not seriously dangerous. The real danger arises when executing history rewriting interactive rebase and force pushing the results to a remote branch that's shared by other users. If the branch is shared with others then this pattern of rebase should be avoided, otherwise it will appear to others that the project history disappears.
