@@ -1,11 +1,11 @@
 # git-rebase
 
-Two common practice of rewritting commit history is commit ```--amend``` and ```rebase```. For ```--amend``` see [git-commit-amend](./git-commit-amend.md).
+Two common practices of rewritting commit history is commit ```--amend``` and ```rebase```. For ```--amend``` see [git-commit-amend](./git-commit-amend.md).
 
 In general, rebase is the process of moving or combining a sequence of commits to a new base commit. By its name, it changes the base of current branch to another, re-apply commits by creating new commits. Therefore, the current branch remains, but its commit history is different.
 
 The primary use case of rebase is: 
-The master branch has progressed since you started working on a feature branch. You want to get the latest updates to the master branch into your branch, but you want to keep your branch's history clean so it appears as if you've been working off the latest master branch.
+The master branch has progressed since you started working on a feature branch. You want to get the latest updates from the master branch into your branch, but you want to keep your branch's history clean so it appears as if you've been working off the latest master branch.
 
 You have two options for integrating your feature into a public(team) branch: merging directly or rebasing and then merging. The former option results in a 3-way merge and a merge commit, while the latter results in a fast-forward merge and a linear history. 
 
@@ -188,4 +188,4 @@ git rebase --continue
 ```
 
 
-Git rebase itself is not seriously dangerous. The real danger arise when executing history rewriting interactive rebases and force pushing the results to a remote branch that's shared by other users. This is a pattern that should be avoided, otherwise it will appear to others that the project history disappears.
+Git rebase itself is not seriously dangerous. The real danger arises when executing history rewriting interactive rebase and force pushing the results to a remote branch that's shared by other users. If the branch is shared with others then this pattern of rebase should be avoided, otherwise it will appear to others that the project history disappears.
