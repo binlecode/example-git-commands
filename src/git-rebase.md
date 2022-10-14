@@ -7,11 +7,11 @@ The master branch has progressed since you started working on a feature branch. 
 
 Git rebase itself is not seriously dangerous. The real danger arises when executing history rewriting interactive rebase and force pushing the results to a remote branch that's shared by other users. If the branch is shared with others then this pattern of rebase should be avoided, otherwise it will appear to others that the project history disappears.
 
-## rebase case study
+## rebase example
 
-With a repo with `master` branch
+With a repo with `master` branch add a feature branch:
 
-```bash
+````bash
 $ git branch
 * master
 $ git branch feature1
@@ -36,7 +36,11 @@ commit 3c0763b1e3b4a96e89bc934dff502b0277c129e3
 Author: Bin Le <binle@Bins-Mbp13d.local>
 Date:   Thu Sep 6 21:02:43 2018 -0400
     initial commit
-# now switch back to master branch and introduce a change
+```
+
+now switch back to master branch and introduce a change
+
+```sh
 $ git checkout master
 # verify commit history on master branch
 $ git log
@@ -65,7 +69,7 @@ commit 3c0763b1e3b4a96e89bc934dff502b0277c129e3
 Author: Bin Le <binle@Bins-Mbp13d.local>
 Date:   Thu Sep 6 21:02:43 2018 -0400
     initial commit
-```
+````
 
 At this point you can see the forked HEADs between `master` and `feature1` branch:
 
